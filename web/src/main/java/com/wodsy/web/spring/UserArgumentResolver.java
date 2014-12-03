@@ -1,7 +1,7 @@
 package com.wodsy.web.spring;
 
 import com.wodsy.common.constant.SessionConstants;
-import com.wodsy.domain.User;
+import com.wodsy.model.User;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebArgumentResolver;

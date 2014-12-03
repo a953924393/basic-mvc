@@ -25,8 +25,12 @@
         </dependency>
         <dependency>
             <groupId>com.wodsy</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>model</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

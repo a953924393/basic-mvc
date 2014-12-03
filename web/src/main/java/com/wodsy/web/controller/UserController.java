@@ -1,12 +1,21 @@
 package com.wodsy.web.controller;
 
+//~--- non-JDK imports --------------------------------------------------------
+
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
+
 import com.wodsy.common.constant.SessionConstants;
-import com.wodsy.domain.User;
+import com.wodsy.model.User;
+import com.wodsy.service.UserService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import javax.annotation.Resource;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,6 +31,33 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("user")
 public class UserController {
+    @Resource
+    UserService userService;
+
+    /**
+     * Method description  分页测试
+
+     * @return
+     */
+    @RequestMapping("queryByPage")
+    @ResponseBody
+    public PageBounds queryByPage() {
+        PageBounds pageBounds = new PageBounds(10);
+
+        return pageBounds;
+    }
+
+    /**
+     * Method description
+     * @param id
+     *
+     * @return
+     */
+    @RequestMapping("selectById")
+    @ResponseBody
+    public User selectByPrimaryKey(Integer id) {
+        return userService.selectByPrimaryKey(id);
+    }
 
     /**
      * 登陆，有两个相同的User.class {@link User}
@@ -35,7 +71,6 @@ public class UserController {
         session.setAttribute(SessionConstants.SESSION_USER, user);
     }
 
-
     /**
      * 测试user是否注入成功
      *
@@ -46,3 +81,6 @@ public class UserController {
         System.out.println(user);
     }
 }
+
+
+//~ Formatted by Jindent --- http://www.jindent.com

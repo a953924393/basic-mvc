@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties>
+        <property name="dialect" value="mysql"/>
+    </properties>
+    <settings>
+        <setting name="cacheModelsEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="enhancementEnabled" value="true"/>
+        <setting name="errorTracingEnabled" value="true"/>
+        <setting name="maxSessions" value="500"/>
+        <setting name="maxTransactions" value="200"/>
+        <setting name="maxRequests" value="1024"/>
+        <setting name="useStatementNamespaces" value="true"/>
+    </settings>
+    <!--分页插件-->
+    <plugins>
+        <plugin interceptor="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+            <property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect"/>
+        </plugin>
+    </plugins>
+</configuration>
